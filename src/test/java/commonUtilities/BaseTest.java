@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,13 +20,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class BaseTest {
     public static WebDriver driver;
     public  ExtentReports report; 
 	public  ExtentTest test;
+	public Logger logger;
     
     ReadConfig readConfig = new ReadConfig();
 
@@ -61,9 +64,11 @@ public class BaseTest {
 			WebDriverManager.safaridriver().setup();
 			driver = new SafariDriver();
 		}
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		logger = LogManager.getLogger("tutorialNinja");
 		driver.get(prop.getProperty("baseurl"));
+		logger.info("url opened");
 	    driver.manage().window().maximize();
-	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
 	@AfterMethod

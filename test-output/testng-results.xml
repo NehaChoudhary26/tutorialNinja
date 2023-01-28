@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-27T11:08:59 CET" name="Default suite" finished-at="2023-01-27T11:09:14 CET" duration-ms="15298">
+  <suite started-at="2023-01-28T21:09:49 CET" name="Default suite" finished-at="2023-01-28T21:10:05 CET" duration-ms="16182">
     <groups>
     </groups>
-    <test started-at="2023-01-27T11:08:59 CET" name="Default test" finished-at="2023-01-27T11:09:14 CET" duration-ms="15298">
-      <class name="testcases.ShopingCartTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.ShopingCartTest@65466a6a]" started-at="2023-01-27T11:08:59 CET" name="setup" finished-at="2023-01-27T11:09:07 CET" duration-ms="8651" status="PASS">
+    <test started-at="2023-01-28T21:09:49 CET" name="Default test" finished-at="2023-01-28T21:10:05 CET" duration-ms="16182">
+      <class name="testcases.NewsletterTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.NewsletterTest@20ce78ec]" started-at="2023-01-28T21:09:49 CET" name="setup" finished-at="2023-01-28T21:10:00 CET" duration-ms="11430" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyGiftCertificates()[pri:0, instance:testcases.ShopingCartTest@65466a6a]" started-at="2023-01-27T11:09:07 CET" name="verifyGiftCertificates" finished-at="2023-01-27T11:09:14 CET" duration-ms="6508" status="PASS">
+        <test-method signature="validateNewsletterSubscription()[pri:0, instance:testcases.NewsletterTest@20ce78ec]" started-at="2023-01-28T21:10:00 CET" name="validateNewsletterSubscription" finished-at="2023-01-28T21:10:05 CET" duration-ms="4615" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyGiftCertificates -->
-        <test-method is-config="true" signature="quitBrowser(org.testng.ITestResult)[pri:0, instance:testcases.ShopingCartTest@65466a6a]" started-at="2023-01-27T11:09:14 CET" name="quitBrowser" finished-at="2023-01-27T11:09:14 CET" duration-ms="81" status="PASS">
+        </test-method> <!-- validateNewsletterSubscription -->
+        <test-method is-config="true" signature="quitBrowser(org.testng.ITestResult)[pri:0, instance:testcases.NewsletterTest@20ce78ec]" started-at="2023-01-28T21:10:05 CET" name="quitBrowser" finished-at="2023-01-28T21:10:05 CET" duration-ms="81" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyGiftCertificates status=SUCCESS method=ShopingCartTest.verifyGiftCertificates()[pri:0, instance:testcases.ShopingCartTest@65466a6a] output={null}]]]>
+                <![CDATA[[TestResult name=validateNewsletterSubscription status=SUCCESS method=NewsletterTest.validateNewsletterSubscription()[pri:0, instance:testcases.NewsletterTest@20ce78ec] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitBrowser -->
-      </class> <!-- testcases.ShopingCartTest -->
+      </class> <!-- testcases.NewsletterTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

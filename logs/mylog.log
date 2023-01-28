@@ -32,3 +32,11 @@
 [INFO ] 2023-01-28 15:44:34.135 [main] tutorialNinja - url opened
 [INFO ] 2023-01-28 15:44:47.600 [main] tutorialNinja - url opened
 [INFO ] 2023-01-28 15:44:50.706 [main] tutorialNinja - registration form open
+[INFO ] 2023-01-28 21:10:00.250 [main] tutorialNinja - url opened
+[INFO ] 2023-01-28 21:10:00.570 [main] tutorialNinja - Click on login option from Account Dropdown
+[INFO ] 2023-01-28 21:10:02.015 [main] tutorialNinja - login page open
+[INFO ] 2023-01-28 21:10:02.015 [main] tutorialNinja - enter username and password to login
+[INFO ] 2023-01-28 21:10:03.769 [main] tutorialNinja - user login successfully
+[INFO ] 2023-01-28 21:10:03.770 [main] tutorialNinja - click on newsletter button
+[INFO ] 2023-01-28 21:10:05.118 [main] tutorialNinja - newsletter page will open and subscription option choosen
+[INFO ] 2023-01-28 21:10:05.168 [main] tutorialNinja - NewsletterTest passed

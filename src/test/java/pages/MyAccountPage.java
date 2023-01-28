@@ -30,6 +30,7 @@ public class MyAccountPage {
 	By continueSubscription = By.xpath("(//input[@value='Continue'])[1]");
 	By subscriptionSuccessMsgDisplayed = By.xpath("//div[@class='alert alert-success alert-dismissible']");
 	By giftCertificateLink = By.linkText("Gift Certificates");
+	By camerasLink = By.xpath("//ul[@class='nav navbar-nav']//li[7]");
 	
 	public MyAccountPage (WebDriver driver) {
 		this.driver = driver;
@@ -94,5 +95,9 @@ public class MyAccountPage {
 	public VoucherPage clickOnGiftCertificate() {
 		driver.findElement(giftCertificateLink).click();
 		return new VoucherPage(driver);
+	}
+	public ProductCategoryPage navigateToCameras() {
+		driver.findElement(camerasLink).click();
+		return new ProductCategoryPage(driver);		
 	}
 }

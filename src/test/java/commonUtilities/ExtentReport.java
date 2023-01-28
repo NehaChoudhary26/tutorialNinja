@@ -79,10 +79,5 @@ public class ExtentReport implements ITestListener {
 		test.log(Status.SKIP,MarkupHelper.createLabel("Name of the pass skipp test case is: "+testName, ExtentColor.YELLOW));
 		test.log(Status.SKIP,result.getThrowable());
 	}
-	
-	@Override
-	public void onFinish(ITestContext context) {
-		report.flush();
-	}
 
 }
