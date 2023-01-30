@@ -4,27 +4,33 @@ import java.io.IOException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import commonUtilities.BaseTest;
+
+import common.BaseTest;
+import common.CommonUtils;
 import pages.HeaderPage;
 import pages.RegistrationPage;
 public class RegistrationTest extends BaseTest {
 	String expectedResult = "Edit your account information";
 	
 	@Test
-	public void verifyRegistration() throws IOException {
+	public void verifyRegistrationWitnValidCredential() throws IOException {
+		CommonUtils commonUtils =new CommonUtils();
 		HeaderPage header = new HeaderPage(driver);
 		RegistrationPage registration = header.clickOnAccountButtonAndRegistrationBtn();
-		registration.enterCredentialsForRegistrationAndSubmit();
-		
-		if(registration.isYourAccountHasBeenCreatedMsgDisplayed())
-		{
-		 boolean actualMsg =registration.isYourAccountHasBeenCreatedMsgDisplayed();
-			Assert.assertTrue(actualMsg);
+		registration.enterCredentialsForNewRegistrationAndSubmit(commonUtils.generateRandomString()+"@gmail.com",defaultpassword);
+		 String expectedResult = "Your Account Has Been Created!";
+		 String actualMsg =registration.isYourAccountHasBeenCreatedMsgDisplayed();
+			Assert.assertEquals(actualMsg, expectedResult);
 		}
-		else
-		{
-			Assert.assertTrue(false);
-		}
-	}
+	
+	@Test
+	  public void verifyRegisterAccountWithInValidEmail() {
+		HeaderPage header = new HeaderPage(driver);
+		RegistrationPage registration = header.clickOnAccountButtonAndRegistrationBtn();
+		registration.enterCredentialsForNewRegistrationAndSubmit("software", "welcome");
+		 String actualResult =registration .getRegisterAccountPageUrl();
+		 String expectedResult = "http://tutorialsninja.com/demo/index.php?route=account/register";
+		 Assert.assertEquals(actualResult, expectedResult);
+	  }
 }
 

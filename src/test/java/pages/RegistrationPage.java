@@ -3,7 +3,9 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RegistrationPage {
+import common.CommonUtils;
+
+public class RegistrationPage extends CommonUtils{
 	WebDriver driver;
 	By yourAccountCreatedMsg = By.xpath("//h1[contains(text(),'Your Account Has Been Created!')]");
 	By first_Name=By.id("input-firstname");
@@ -20,21 +22,26 @@ public class RegistrationPage {
 		this.driver=driver;
 	}
 	
-	public void enterCredentialsForRegistrationAndSubmit() {
-		 driver.findElement(first_Name).sendKeys("Neha");
-		 driver.findElement(last_Name).sendKeys("Choudhary");
-		 driver.findElement(email_Field).sendKeys("softwaretesting2345@gmail.com");
-		 driver.findElement(telephone_Field).sendKeys("0734545237");
-		 driver.findElement(pwd_Field).sendKeys("Software@2022");
-		 driver.findElement(confirm_Pwd_field).sendKeys("Software@2022");
+	public void enterCredentialsForNewRegistrationAndSubmit(String email,String password ) {
+		CommonUtils commonUtils =new CommonUtils();
+		 driver.findElement(first_Name).sendKeys(commonUtils.generateRandomString());
+		 driver.findElement(last_Name).sendKeys(commonUtils.generateRandomString());
+		 driver.findElement(email_Field).sendKeys(email);
+		 driver.findElement(telephone_Field).sendKeys(commonUtils.generateRandomeNumber());
+		 driver.findElement(pwd_Field).sendKeys(password);
+		 driver.findElement(confirm_Pwd_field).sendKeys(password);
 		 driver.findElement(radioBtn).click();
 		 driver.findElement(privacyBtn).click();
 		 driver.findElement(continueBtn).click();
-		 driver.findElement(By.xpath("//a[text()='Continue']")).click();
+		 //driver.findElement(By.xpath("//a[text()='Continue']")).click();
 	}
 	
-	public boolean isYourAccountHasBeenCreatedMsgDisplayed() {
-		boolean accountCreationMsg = driver.findElement(yourAccountCreatedMsg).isDisplayed();
+	public String isYourAccountHasBeenCreatedMsgDisplayed() {
+		String accountCreationMsg = driver.findElement(yourAccountCreatedMsg).getText();
 		return accountCreationMsg;
+	}
+
+	public String getRegisterAccountPageUrl() {
+		return driver.getCurrentUrl();
 	}
 }

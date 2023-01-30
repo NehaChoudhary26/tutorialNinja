@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import commonUtilities.BaseTest;
+import common.BaseTest;
 import pages.HeaderPage;
 import pages.LoginPage;
 import pages.MyAccountPage;

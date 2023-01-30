@@ -96,8 +96,8 @@ public class MyAccountPage {
 		driver.findElement(giftCertificateLink).click();
 		return new VoucherPage(driver);
 	}
-	public ProductCategoryPage navigateToCameras() {
+	public ProductDisplayPage clickToCamerasLink() {
 		driver.findElement(camerasLink).click();
-		return new ProductCategoryPage(driver);		
+		return new ProductDisplayPage(driver);		
 	}
 }

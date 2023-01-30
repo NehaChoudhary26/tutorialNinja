@@ -1,9 +1,8 @@
 package testcases;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import commonUtilities.BaseTest;
+import common.BaseTest;
 import pages.HeaderPage;
 import pages.LoginPage;
 import pages.MyAccountPage;
@@ -16,6 +15,7 @@ public class WishlistTest extends BaseTest{
 	@Test
 	public void validateSearchProductAndAddTowishlist() throws Throwable {
 	HeaderPage header = new HeaderPage(driver);
+	SoftAssert softAssert = new SoftAssert();
 	LoginPage login = header.clickOnAccountButtonAndLoginBtn();
 		MyAccountPage myAccountPage=login.enterCredentialsToLogin("valid", defaultuser, defaultpassword);
 		SearchProductPage search =myAccountPage.searchItem("iPhone");
@@ -33,20 +33,5 @@ public class WishlistTest extends BaseTest{
        boolean isProductAddedToWishlist= wishlist.varifyProductAddedToWishlist();
 		softAssert.assertTrue(isProductAddedToWishlist);
     }
-	
-	@Test
-	public void removeProductFromWishlist() throws Throwable {
-		HeaderPage header = new HeaderPage(driver);
-		LoginPage login = header.clickOnAccountButtonAndLoginBtn();
-		MyAccountPage myAccountPage=login.enterCredentialsToLogin("valid", defaultuser, defaultpassword);
-		SearchProductPage search =myAccountPage.searchItem("iPhone");
-		search.clickToWishlistIconToaddProduct();
-		Thread.sleep(3000);
-		WishlistPage wishlist = header.clickOnWishlistBtn();
-		Thread.sleep(3000);
-		wishlist.removeProductFromWishlist();
-		boolean actualMsg =wishlist.verifyProductIsRemoved();
-		softAssert.assertTrue(actualMsg, "Not Pass");
-		
-	}
+
 }

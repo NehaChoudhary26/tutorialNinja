@@ -3,7 +3,7 @@ package testcases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import commonUtilities.BaseTest;
+import common.BaseTest;
 import pages.ForgottenPasswordPage;
 import pages.HeaderPage;
 import pages.LoginPage;
