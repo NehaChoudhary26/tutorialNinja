@@ -1,7 +1,6 @@
 package common;
 
 import java.io.File;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -18,10 +17,9 @@ public class ExtentReport implements ITestListener {
 	public static ExtentSparkReporter htmlReporter;
 	public static ExtentReports report; 
 	public static ExtentTest test;
-	WebDriver driver;
+	
 
 	public static void configExtentReport() {
-   
 		File extentReportFilePath =new File(System.getProperty("user.dir")+"/ExtentReports/MyExtentReports.html");
 		htmlReporter = new  ExtentSparkReporter(extentReportFilePath);
 		report = new ExtentReports();
@@ -37,8 +35,7 @@ public class ExtentReport implements ITestListener {
 		htmlReporter.config().setReportName("TutorialsNinja Test•Automation Results Report");
 		htmlReporter.config ().setTheme (Theme.DARK); 
 		htmlReporter.config().setTimeStampFormat("dd/mm/yyyy-hh:mm:ss");
-
-	}
+     }
 
 	@Override
 	public void onStart(ITestContext context) {
@@ -57,9 +54,7 @@ public class ExtentReport implements ITestListener {
 	public void onTestSuccess(ITestResult result) {
 	String testName=result.getName();
 	test = report.createTest(testName);
-	//test.log(Status.PASS,MarkupHelper.createLabel("Name of the pass test case is: "+testName, ExtentColor.GREEN));
-    test.generateLog(Status.PASS,MarkupHelper.createLabel("Name of the pass test case is: "+testName, ExtentColor.GREEN));
-    test.log(Status.INFO,result.getThrowable());
+	test.log(Status.PASS,MarkupHelper.createLabel("Name of the pass test case is: "+testName, ExtentColor.GREEN));
 	}
 
 	@Override
@@ -69,15 +64,16 @@ public class ExtentReport implements ITestListener {
 	test.log(Status.FAIL,MarkupHelper.createLabel("Name of the failed test case is: "+testName, ExtentColor.RED));
 	test.log(Status.INFO,result.getThrowable());
 	String screenShotPath = System.getProperty("user.dir") + "/Screenshots/" + testName + ".png";
+	
 	if(result.getStatus()==ITestResult.FAILURE) {
 	test.fail("Captured Screenshot is :" + test.addScreenCaptureFromPath(screenShotPath));
       }
-	}
+}
 
-	@Override
+  @Override
 	public void onTestSkipped(ITestResult result) {
 		String testName=result.getName();
-		test = report.createTest(testName);
+		//test = report.createTest(testName);
 		test.log(Status.SKIP,MarkupHelper.createLabel("Name of the pass skipp test case is: "+testName, ExtentColor.YELLOW));
 		test.log(Status.SKIP,result.getThrowable());
 	}

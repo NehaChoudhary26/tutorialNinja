@@ -10,9 +10,9 @@ import pages.ProductDisplayPage;
 import pages.productComparePage;
 
 public class productCompareTest extends BaseTest {
+	
 	@Test
 	public void verifyProductAddedToComaparePage() throws InterruptedException {
-		
 		SoftAssert softAssert = new SoftAssert();
 		HeaderPage header = new HeaderPage(driver);
 		logger.info("Click on login option from Account Dropdown");
@@ -21,6 +21,7 @@ public class productCompareTest extends BaseTest {
 		logger.info("enter username and password to login");
 		MyAccountPage myAccountPage=login.enterCredentialsToLogin("valid", defaultuser, defaultpassword);
 		logger.info("user login successfully");
+		logger.debug("user login successfully");
 		logger.info("click on camra link on Accoun Page");
 		ProductDisplayPage productDisplay = myAccountPage.clickToCamerasLink();
 		logger.info("all cameras open in product page");
@@ -44,5 +45,4 @@ public class productCompareTest extends BaseTest {
 		logger.info("verify that Nikon D300 present on compare page");
 		softAssert.assertAll();
 	}
-
 }
