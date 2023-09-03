@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.NewsletterTest">
+      <class name="testcases.EstimateShipingAndTaxesTest">
         <methods>
+          <include name="verifyEstimateShipingAndTaxes"/>
+          <include name="finishExtent"/>
           <include name="setup"/>
+          <include name="configExtentReport"/>
           <include name="quitBrowser"/>
-          <include name="validateNewsletterSubscription"/>
         </methods>
-      </class> <!-- testcases.NewsletterTest -->
+      </class> <!-- testcases.EstimateShipingAndTaxesTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
